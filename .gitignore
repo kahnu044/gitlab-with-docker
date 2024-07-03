@@ -1,0 +1,20 @@
+# Ignore Docker-related files
+docker-compose.override.yml
+docker-compose.override.yml.*
+docker-compose.*
+.env
+.env.*
+
+# Ignore GitLab data and config directories
+config/
+logs/
+data/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build and temp files
+*.log
+*.tmp
+*.pid
+*.lock
