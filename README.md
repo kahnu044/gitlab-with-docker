@@ -21,7 +21,7 @@ This Docker Compose configuration allows you to easily set up a GitLab instance 
     cd gitlab-with-docker
     ```
 
-3. Create necessary directories(if not present) for GitLab and give them permission:
+3. Create necessary directories (if not present) for GitLab and give them permission:
 
     ```bash
     mkdir -p gitlab/config gitlab/logs gitlab/data
@@ -30,32 +30,41 @@ This Docker Compose configuration allows you to easily set up a GitLab instance 
 
 4. Deploy GitLab using Docker Compose:
 
+    For local setup:
     ```bash
-    docker-compose up -d
+    docker-compose -f docker-compose.local.yml up -d
+    ```
+
+    For server setup:
+    ```bash
+    docker-compose -f docker-compose.server.yml up -d
     ```
 
 5. Access GitLab in your browser:
 
-    [https://code.developernoob.in](https://code.developernoob.in)
+    - Local: [http://localhost:8013](http://localhost:8013)
+    - Server: [https://gitabl.example.com](https://gitabl.example.com)
 
 6. Retrieve the initial root password:
-    Find the the docker container id by running the following command
-    ```bash 
-    docker ps
-    ```
-    Change the container name `gitlab-with-docker_web_1` to `<your container name>`
+    Find the docker container id by running the following command:
 
     ```bash
-    sudo docker exec -it gitlab-with-docker_web_1 grep 'Password:' /etc/gitlab/initial_root_password
+    docker ps
+    ```
+
+    Change the container name `gitlab-with-docker_web_1` to `<your container name>`:
+
+    ```bash
+    sudo docker exec -it <your container name> grep 'Password:' /etc/gitlab/initial_root_password
     ```
 
     Use the displayed password to log in as the root user.
 
 7. Log in to GitLab:
 
-    - URL: [https://code.developernoob.in](https://code.developernoob.in)
+    - URL: [http://localhost:8013](http://localhost:8013) (local) or [https://gitabl.example.com](https://gitabl.example.com) (server)
     - Username: `root`
-    - Password: Use the password retrieved in step 7.
+    - Password: Use the password retrieved in step 6.
 
 ## Customization
 
@@ -66,4 +75,4 @@ This Docker Compose configuration allows you to easily set up a GitLab instance 
 
 - Ensure that ports 80, 443, and 2222 on your server are accessible.
 - Remember to change the initial root password after the first login.
-- For info visit official -[Docker Image Docs](https://docs.gitlab.com/ee/install/docker.html).
+- For more info, visit the official [Docker Image Docs](https://docs.gitlab.com/ee/install/docker.html).
