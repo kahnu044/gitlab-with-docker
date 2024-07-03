@@ -1,0 +1,19 @@
+version: '3.6'
+services:
+  web:
+    image: 'gitlab/gitlab-ee:latest'
+    restart: always
+    hostname: 'code.developernoob.in' # Replace with your desired URL
+    # Server setup
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://code.developernoob.in'
+    ports:
+      - '80:80'      # Server HTTP port
+      - '443:443'    # Server HTTPS port
+      - '2222:22'    # Server SSH port
+    volumes:
+      - './gitlab/config:/etc/gitlab'
+      - './gitlab/logs:/var/log/gitlab'
+      - './gitlab/data:/var/opt/gitlab'
+    shm_size: '256m'
