@@ -3,13 +3,13 @@ services:
   web:
     image: 'gitlab/gitlab-ee:latest'
     restart: always
-    hostname: 'code.developernoob.in'
+    # hostname: 'code.developernoob.in'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://code.developernoob.in'
+        external_url 'http://localhost'
     ports:
-      - '80:80'
-      - '443:443'
+      - '8013:80'
+      # - '443:443'
       - '2222:22'
     volumes:
       - './gitlab/config:/etc/gitlab'
