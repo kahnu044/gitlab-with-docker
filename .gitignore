@@ -1,6 +1,5 @@
 # Ignore Docker-related files
 .env
-.env.*
 
 # Ignore GitLab data and config directories
 config/
