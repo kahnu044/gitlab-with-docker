@@ -2,11 +2,11 @@ services:
   web:
     image: 'gitlab/gitlab-ee:latest'
     restart: always
-    hostname: 'code.developernoob.in' # Replace with your desired URL
+    hostname: 'git.developernoob.com' # Replace with your desired URL
     # Server setup
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://code.developernoob.in'
+        external_url 'https://git.developernoob.com'
     ports:
       - '80:80'      # Server HTTP port
       - '443:443'    # Server HTTPS port
