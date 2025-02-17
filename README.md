@@ -12,13 +12,13 @@ This Docker Compose configuration allows you to easily set up a GitLab instance 
 1. Clone this repository:
 
     ```bash
-    git clone https://github.com/kahnu044/gitlab-with-docker
+    git clone https://github.com/kahnu044/gitlab-docker
     ```
 
 2. Navigate to the project directory:
 
     ```bash
-    cd gitlab-with-docker
+    cd gitlab-docker
     ```
 
 3. Create necessary directories (if not present) for GitLab and give them permission:
@@ -47,7 +47,7 @@ This Docker Compose configuration allows you to easily set up a GitLab instance 
     docker ps
     ```
 
-    Change the container name `gitlab-with-docker_web_1` to `<your container name>`:
+    Change the container name `gitlab-docker_web_1` to `<your container name>`:
 
     ```bash
     sudo docker exec -it <your container name> grep 'Password:' /etc/gitlab/initial_root_password
